@@ -1,0 +1,12 @@
+html, body, #root, .room {
+    height: 100%;
+    margin: 0;
+}
+.light{
+    background-color: white;
+    color: Black;
+}
+.Dark{
+    background-color: black;
+    color: white;
+}
