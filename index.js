@@ -1,10 +1,17 @@
+//Importing react and react-dom
 import React from 'react'; 
 import ReactDOM from 'react-dom';
 //const React=require('react'); This works too...
 //const ReactDOM=require('react-dom');
+
 import Steve from './Steve_Jobs.png';
 import Imran from './Imran.jpg';
-import './room.css'
+import './room.css';
+
+//The below is in case of export of default type of BatiGate function https://www.w3schools.com/js/js_modules.asp 
+import BatiGat from './BatiGate.js' //As this file is created by us so we need to specify its location too with ./
+// The below is in case of name type export.
+//import {BatiGate} from './BatiGate.js' 
 
 function Hey(profss){
   return <div>
@@ -39,21 +46,12 @@ function Gate(){
          </div>;
 }
 
-function BatiGate(){
-  const [Store,State]=React.useState();
-  return <div class={Store ? 'light':'Dark'}>
-    Gate is {Store === true ? 'Open' : 'Close'}
-    <button onClick={()=> {if(Store!==true){State(!Store)}}}>Turn On</button>
-    <button onClick={()=> {if(Store!==false){State(!Store)}}}>Turn Off</button>
-  </div>
-}
-
 ReactDOM.render(
   <div>
   <Hey firstName="Sohaib" lastName="Ahmad"/>
   <Media title="Media" body="Please subscribe to listen good music..." Imrani={Imran}/>
   <Gate />
-  <BatiGate />
+  <BatiGat />
   </div>, //It is mandatory to use <div> element as more than one component is called by react.
   document.getElementById('root')
 )
