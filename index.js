@@ -1,3 +1,4 @@
+
 //Importing react and react-dom
 import React from 'react'; 
 import ReactDOM from 'react-dom';
@@ -12,6 +13,8 @@ import './room.css';
 import BatiGat from './BatiGate.js' //As this file is created by us so we need to specify its location too with ./
 // The below is in case of name type export.
 //import {BatiGate} from './BatiGate.js' 
+import App_ from './App_.js'
+import App from './App.js'
 
 function Hey(profss){
   return <div>
@@ -36,9 +39,15 @@ function Media(profs){
          </div>
 }
 
+function Mi({title,body}){ //This will also work, because {title, body} is an object like profs in Media function.
+  return <div>
+          <p><b>{title}</b>: {body}</p>
+         </div>
+}
+
 function Gate(){
   const [openClose,setLit]=React.useState(); 
-  return <div class={openClose === true ? 'light' : 'Dark'}> {/*class is made dynamic so that CSS styles apply to <div> element dynamically.*/}
+  return <div className={openClose === true ? 'light' : 'Dark'}> {/*class is made dynamic so that CSS styles apply to <div> element dynamically.*/}
             Gate is {openClose === true ? 'Open' : 'Close'}
             <button onClick={() => setLit(!openClose)}>  {/*onClick is an attribute it can't be named differently.*/}
                Flip 
@@ -46,12 +55,17 @@ function Gate(){
          </div>;
 }
 
+
 ReactDOM.render(
   <div>
   <Hey firstName="Sohaib" lastName="Ahmad"/>
   <Media title="Media" body="Please subscribe to listen good music..." Imrani={Imran}/>
-  <Gate />
-  <BatiGat />
+  <Mi title="Steve Job" body="A great visionary and Enterpreneur"/>
+  <Gate/>
+  <BatiGat/>
+  <App_/>
+  <App/>
   </div>, //It is mandatory to use <div> element as more than one component is called by react.
   document.getElementById('root')
 )
+
